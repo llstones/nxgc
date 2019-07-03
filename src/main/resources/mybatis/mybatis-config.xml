@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--spring已经配置了数据源，这里不需要了-->
+    <!-- 开启驼峰匹配，经典的数据库列名（多个单词时，以下划线连接）到经典java属性名（多个单词时，以驼峰命名） -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!--别名扫描spring比较擅长所以交给spring-->
+    <!--扫描pojo包,并取别名-->
+   <!-- <typeAliases>
+        <package name="cn.leo.pojo"></package>
+    </typeAliases>-->
+    <!--一个个加载比较繁琐，所以交给spring扫描管理-->
+    <!-- 定义数据库信息，默认使用development数据库构建环境 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 采用JDBC事务管理 -->
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">
+                    <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+                    <property name="url" value="jdbc:mysql://localhost:3306/bookstore?characterEncoding=utf8"></property>
+                    <property name="username" value="root"></property>
+                    <property name="password" value="root"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+</configuration>
