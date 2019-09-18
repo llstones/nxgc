@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
+    <!--如果不想生成example，在 targetRuntime="MyBatis3" 处修改为  targetRuntime="MyBatis3Simple"-->
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!-- 配置在逆向生成时不需要有他们默认的注释 -->
         <commentGenerator>
